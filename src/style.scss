@@ -1,0 +1,39 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-create-block-iapi-animated-word-switcher {
+  font-size: 1em;
+  background: #ffff001a;
+  padding: 1em;
+
+  &.dark-theme {
+    background: #333;
+    color: #fff;
+
+    button {
+      background: #555;
+      color: #fff;
+      border: 1px solid #777;
+    }
+
+    p {
+      color: #ddd;
+    }
+  }
+  [data-wp-text="state.currentWord"] {
+    transition: opacity 1s ease-in-out;
+    display: inline-block;
+  }
+  .word-animated {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+  }
+
+  .word-animated.fade {
+    opacity: 0;
+  }
+}
