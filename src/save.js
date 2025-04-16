@@ -6,7 +6,11 @@ export default function save({ attributes }) {
 
   return (
     <div {...useBlockProps.save()}>
-      <RichText.Content tagName="p" value={content || ""} />
+      <RichText.Content
+        tagName="p"
+        value={content}
+        allowedFormats={["juanmablocks/word-switcher"]}
+      />
     </div>
   );
 }

@@ -10,33 +10,34 @@
 
 // Direct debug output in HTML comments for inspection
 
+$processor = new WP_HTML_Tag_Processor($content);
 
-$_processor = new WP_HTML_Tag_Processor($content);
+// First, find and process the parent div
+if ($processor->next_tag(['tag_name' => 'div', 'class_name' => 'wp-block-juanmablocks-word-switcher'])) {
+	// Set a bookmark at the parent div for later reference
+	$processor->set_bookmark('parent');
 
-// Set a bookmark at the start for multiple passes
-$_processor->next_tag();
-$_processor->set_bookmark('start');
+	// Collect all words from word-switcher spans
+	$all_words = [];
 
-// First collect all words from word-switcher spans and add their attributes
-$all_words = [];
-while ($_processor->next_tag(['tag_name' => 'span', 'class_name' => 'word-switcher'])) {
-	$_processor->set_attribute('data-wp-text', 'state.currentWord');
-	$_processor->set_attribute('data-wp-class--fade', 'context.isFading');
-	// Move to the next token (should be the text content)
-	if ($_processor->next_token()) {
-		$text_content = $_processor->get_modifiable_text();
+	// Move to the first span with word-switcher class
+	while ($processor->next_tag(['tag_name' => 'span', 'class_name' => 'word-switcher'])) {
+		$processor->set_attribute('data-wp-text', 'state.currentWord');
+		$processor->set_attribute('data-wp-class--fade', 'context.isFading');
 
-		if ($text_content) {
-			$words = array_map('trim', explode(',', $text_content));
-			$words = array_filter($words); // Remove empty values
-			$all_words = array_merge($all_words, $words);
+		// Get the text content if it's a text node
+		if ($processor->next_token()) {
+			$text_content = $processor->get_modifiable_text();
+			if ($text_content) {
+				$words = array_map('trim', explode(',', $text_content));
+				$words = array_filter($words); // Remove empty values
+				$all_words = array_merge($all_words, $words);
+			}
 		}
 	}
-}
 
-// Reset to the beginning to find the parent div
-$processor = new WP_HTML_Tag_Processor($_processor->get_updated_html());
-if ($processor->next_tag(['tag_name' => 'div', 'class_name' => 'wp-block-juanmablocks-word-switcher'])) {
+	// Return to the parent div using the bookmark
+	$processor->seek('parent');
 
 	// Add interactivity attributes to the parent div
 	$processor->set_attribute('data-wp-interactive', 'juanma-blocks/word-switcher');
@@ -48,7 +49,4 @@ if ($processor->next_tag(['tag_name' => 'div', 'class_name' => 'wp-block-juanmab
 	]));
 }
 
-$html = $processor->get_updated_html();
-?>
-
-<?php echo $html; ?>
+echo $processor->get_updated_html();
