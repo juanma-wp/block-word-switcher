@@ -1,19 +1,20 @@
 <?php
+
 /**
- * Plugin Name:       Iapi Animated Word Switcher
- * Description:       An interactive block with the Interactivity API.
+ * Plugin Name:       Block Word Switcher
+ * Description:       A block with the Interactivity API.
  * Version:           0.1.0
  * Requires at least: 6.7
  * Requires PHP:      7.4
  * Author:            The WordPress Contributors
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       iapi-animated-word-switcher
+ * Text Domain:       block-word-switcher
  *
  * @package           create-block
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
+if (! defined('ABSPATH')) {
 	exit; // Exit if accessed directly.
 }
 
@@ -24,7 +25,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @see https://developer.wordpress.org/reference/functions/register_block_type/
  */
-function create_block_iapi_animated_word_switcher_block_init() {
-	register_block_type_from_metadata( __DIR__ . '/build' );
+function create_block_word_switcher_block_init()
+{
+	register_block_type_from_metadata(__DIR__ . '/build');
 }
-add_action( 'init', 'create_block_iapi_animated_word_switcher_block_init' );
+add_action('init', 'create_block_word_switcher_block_init');
