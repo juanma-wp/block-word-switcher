@@ -19,6 +19,8 @@ A dynamic WordPress block that allows you to create animated text transitions wh
 5. Add multiple words separated by commas (e.g., "Hello,Hi,Hey")
 6. The words will automatically cycle through with a smooth animation
 
+![demo](./assets/demo.gif)
+
 ## Technical Details
 
 This block is built using the WordPress Interactivity API, which provides a modern way to create interactive blocks without complex JavaScript frameworks. The animations are handled through CSS transitions and transforms for optimal performance.
