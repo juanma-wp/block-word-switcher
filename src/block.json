@@ -22,13 +22,7 @@
     "spacing": {
       "padding": true,
       "margin": true
-    },
-    "reusable": false,
-    "align": true,
-    "alignWide": true,
-    "alignContent": true,
-    "alignText": true,
-    "alignFull": true
+    }
   },
   "attributes": {
     "content": {
