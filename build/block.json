@@ -10,7 +10,25 @@
   "example": {},
   "supports": {
     "interactivity": true,
-    "html": true
+    "html": true,
+    "typography": {
+      "fontSize": true,
+      "lineHeight": true
+    },
+    "color": {
+      "background": true,
+      "text": true
+    },
+    "spacing": {
+      "padding": true,
+      "margin": true
+    },
+    "reusable": false,
+    "align": true,
+    "alignWide": true,
+    "alignContent": true,
+    "alignText": true,
+    "alignFull": true
   },
   "attributes": {
     "content": {

@@ -72,15 +72,15 @@ __webpack_require__.r(__webpack_exports__);
   callbacks: {
     init: () => {
       const context = (0,_wordpress_interactivity__WEBPACK_IMPORTED_MODULE_0__.getContext)();
-      // Aplica la clase 'fade'
+      // Apply the fade class
       setInterval(() => {
         context.isFading = true;
-        // Espera un poco antes de cambiar la palabra
+        // Wait before changing the word
         setTimeout(() => {
           context.currentIndex = (context.currentIndex + 1) % context.words.length;
           context.isFading = false;
-        }, 100); // 300ms para permitir el fade-out antes de cambiar
-      }, 5000); // cambia cada 2 segundos
+        }, 50); // Reduced from 100ms to 50ms for faster transition
+      }, 2000); // Reduced from 5000ms to 2000ms for faster switching
     }
   },
   computed: {

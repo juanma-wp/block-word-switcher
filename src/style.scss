@@ -7,7 +7,7 @@
 
 .wp-block-juanmablocks-word-switcher {
   [data-wp-text="state.currentWord"] {
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     display: inline-block;
     will-change: opacity, transform;
     transform-origin: center;
@@ -15,7 +15,7 @@
   }
   .word-switcher {
     opacity: 1;
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     will-change: opacity, transform;
     transform-origin: center;
     transform: translateY(0);
@@ -30,7 +30,7 @@
   .word-switcher:not(.fade) {
     opacity: 0;
     transform: translateY(-20px);
-    animation: slideIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    animation: slideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   }
 
   @keyframes slideIn {

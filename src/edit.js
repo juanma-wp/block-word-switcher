@@ -18,7 +18,6 @@ export default function Edit({ attributes, setAttributes }) {
         value={content}
         onChange={handleFormatChange}
         placeholder={__("Write your content here...")}
-        allowedFormats={[WORD_SWITCHER_FORMAT]}
       />
     </div>
   );
