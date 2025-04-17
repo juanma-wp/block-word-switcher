@@ -18,6 +18,9 @@ if (! defined('ABSPATH')) {
 	exit; // Exit if accessed directly.
 }
 
+// Include block filters
+require_once plugin_dir_path(__FILE__) . 'src/block-filters.php';
+
 /**
  * Registers the block using the metadata loaded from the `block.json` file.
  * Behind the scenes, it registers also all assets so they can be enqueued

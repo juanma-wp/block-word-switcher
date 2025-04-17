@@ -8,7 +8,7 @@
   \************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"juanmablocks/word-switcher","version":"0.1.0","title":"Word Switcher","category":"widgets","icon":"media-interactive","description":"An interactive block with the Interactivity API.","example":{},"supports":{"interactivity":true,"html":true,"typography":{"fontSize":true,"lineHeight":true},"color":{"background":true,"text":true},"spacing":{"padding":true,"margin":true}},"attributes":{"content":{"type":"string","source":"html","selector":"p"}},"textdomain":"juanmablocks","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScriptModule":"file:./view.js","render":"file:./render.php"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"juanmablocks/word-switcher","version":"0.1.0","title":"Word Switcher","category":"widgets","icon":"media-interactive","description":"An interactive block with the Interactivity API.","example":{},"supports":{"interactivity":true,"html":true,"typography":{"fontSize":true,"lineHeight":true},"color":{"background":true,"text":true},"spacing":{"padding":true,"margin":true}},"attributes":{"content":{"type":"string","source":"html","selector":"p"},"switchingWords":{"type":"array","default":[]}},"textdomain":"juanmablocks","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScriptModule":"file:./view.js","render":"file:./render.php"}');
 
 /***/ }),
 

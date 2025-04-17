@@ -29,6 +29,10 @@
       "type": "string",
       "source": "html",
       "selector": "p"
+    },
+    "switchingWords": {
+      "type": "array",
+      "default": []
     }
   },
   "textdomain": "juanmablocks",
