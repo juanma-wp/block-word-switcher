@@ -45,41 +45,22 @@ function juanmablocks_word_switcher_register_scripts()
 	// Localize script for i18n if needed - assuming 'juanmablocks' text domain
 	wp_set_script_translations('juanma-blocks-word-switcher-editor', 'juanmablocks');
 
-	// --- iApi Script (Interactivity API Logic) ---
-	$script_asset_path_iapi = "$dir/build/iapi.asset.php";
-	if (! file_exists($script_asset_path_iapi)) {
-		throw new Error(
-			'You need to run `npm start` or `npm run build` for the "juanmablocks/word-switcher" block first.'
-		);
-	}
-	$script_asset_iapi = require($script_asset_path_iapi);
 
-	// Map script dependencies to module dependencies if needed.
-	// Assumes 'wp-interactivity' is present and maps it to '@wordpress/interactivity'.
-	// Other script dependencies listed in the asset file might not be available as modules yet.
-	$module_dependencies = array_map(function ($dependency) {
-		if ($dependency === 'wp-interactivity') {
-			return '@wordpress/interactivity';
-		}
-		// Add mappings for other known core modules if necessary
-		// Or handle/warn about non-module dependencies
-		return $dependency; // Keep others as is for now, might cause issues
-	}, $script_asset_iapi['dependencies']);
 
 	wp_register_script_module(
 		'@juanma-blocks/word-switcher', // Use a module-style ID
-		plugins_url('build/iapi.js', __FILE__),
-		$module_dependencies, // Use mapped module dependencies
-		$script_asset_iapi['version']
+		plugins_url('assets/iapi.js', __FILE__),
+		array(), // Use mapped module dependencies
+		filemtime(plugin_dir_path(__FILE__) . 'assets/iapi.js') // Use file modification time
 		// No 'strategy' => 'defer' for modules
 	);
 
 	// register style
 	wp_register_style(
 		'juanma-blocks-word-switcher',
-		plugins_url('build/style-iapi.css', __FILE__),
+		plugins_url('assets/style.css', __FILE__),
 		array(),
-		$script_asset_iapi['version']
+		filemtime(plugin_dir_path(__FILE__) . 'assets/style.css') // Use file modification time
 	);
 }
 add_action('init', 'juanmablocks_word_switcher_register_scripts');

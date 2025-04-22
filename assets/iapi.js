@@ -2,7 +2,7 @@
  * WordPress dependencies
  */
 import { store, getContext } from "@wordpress/interactivity";
-import "./style.scss";
+
 store("juanma-blocks/word-switcher", {
   state: {
     get currentWord() {
