@@ -2,7 +2,7 @@
  * WordPress dependencies
  */
 import { store, getContext } from "@wordpress/interactivity";
-
+import "./style.scss";
 store("juanma-blocks/word-switcher", {
   state: {
     get currentWord() {
@@ -21,8 +21,8 @@ store("juanma-blocks/word-switcher", {
           context.currentIndex =
             (context.currentIndex + 1) % context.words.length;
           context.isFading = false;
-        }, 50); // Reduced from 100ms to 50ms for faster transition
-      }, 2000); // Reduced from 5000ms to 2000ms for faster switching
+        }, 200); // Reduced from 100ms to 50ms for faster transition
+      }, 3000); // Reduced from 5000ms to 2000ms for faster switching
     },
   },
   computed: {
